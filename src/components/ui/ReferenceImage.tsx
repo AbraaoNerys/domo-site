@@ -13,7 +13,7 @@ export default function ReferenceImage({
   src,
   alt,
   className = "",
-  caption = "Conteúdo ilustrativo",
+  caption = "Foto oficial DOMO",
   imageClassName = "object-cover",
   sizes,
   preload = false,

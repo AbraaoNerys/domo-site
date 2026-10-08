@@ -58,6 +58,11 @@ npx tsc --noEmit
 npm run build
 ```
 
+## Docker
+
+Para gerar e executar a versão de produção em um container, consulte o guia
+passo a passo em [DOCKER.md](./DOCKER.md).
+
 ## Organização
 
 ```text

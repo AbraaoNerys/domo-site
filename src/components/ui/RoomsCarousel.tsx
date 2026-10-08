@@ -252,127 +252,137 @@ export default function RoomsCarousel({ images }: RoomsCarouselProps) {
 
   return (
     <div
-      className="min-w-0"
+      className="relative isolate min-w-0 overflow-hidden rounded-subtle border border-accent/70 bg-surface p-4 sm:p-6 xl:p-10"
       role="region"
       aria-roledescription="carrossel"
-      aria-label="Galeria de ambientes ilustrativos"
+      aria-label="Galeria de ambientes do Escritório DOMO"
     >
-      <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-forest">
-            Referências visuais
-          </p>
-          <p className="mt-2 text-sm leading-6 text-ink/55">
-            Imagens temporárias para apresentação do protótipo.
-          </p>
-        </div>
-
-        <div className="flex shrink-0 gap-2" aria-label="Controles do carrossel">
-          <button
-            type="button"
-            aria-label={
-              prefersReducedMotion
-                ? "Reprodução automática desativada pela preferência de movimento reduzido"
-                : isPausedByUser
-                  ? "Retomar reprodução automática"
-                  : "Pausar reprodução automática"
-            }
-            disabled={prefersReducedMotion || images.length <= 1}
-            onClick={toggleAutoplay}
-            className="interactive-control grid size-11 place-items-center rounded-subtle border border-ink/25 text-sm text-ink transition-colors hover:border-forest hover:text-forest disabled:cursor-not-allowed disabled:opacity-30"
-          >
-            <span aria-hidden="true">{isPausedByUser ? "▶" : "Ⅱ"}</span>
-          </button>
-          <button
-            type="button"
-            aria-label="Ver imagem anterior"
-            disabled={!canGoBack}
-            onClick={() => handleManualNavigation(activeIndex - 1)}
-            className="interactive-control grid size-11 place-items-center rounded-subtle border border-ink/25 text-xl text-ink transition-colors hover:border-forest hover:text-forest disabled:cursor-not-allowed disabled:opacity-30"
-          >
-            <span aria-hidden="true">←</span>
-          </button>
-          <button
-            type="button"
-            aria-label="Ver próxima imagem"
-            disabled={!canGoForward}
-            onClick={() => handleManualNavigation(activeIndex + 1)}
-            className="interactive-control grid size-11 place-items-center rounded-subtle border border-ink/25 text-xl text-ink transition-colors hover:border-forest hover:text-forest disabled:cursor-not-allowed disabled:opacity-30"
-          >
-            <span aria-hidden="true">→</span>
-          </button>
-        </div>
-      </div>
-
-      <ul
-        ref={trackRef}
-        tabIndex={0}
-        aria-label="Imagens ilustrativas de ambientes profissionais"
-        onKeyDown={handleKeyDown}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={finishPointerDrag}
-        onPointerCancel={finishPointerDrag}
-        onWheel={pauseAutoplayTemporarily}
-        onDragStart={(event) => event.preventDefault()}
-        className="carousel-track mt-3 flex touch-pan-y snap-x snap-mandatory select-none gap-4 overflow-x-auto scroll-smooth py-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
-      >
-        {images.map((image, index) => (
-          <li
-            key={image.id}
-            data-carousel-slide
-            role="group"
-            aria-roledescription="slide"
-            aria-label={`Imagem ${index + 1} de ${images.length}`}
-            className="basis-full shrink-0 snap-start"
-          >
-            <ReferenceImage
-              src={image.src}
-              alt={image.alt}
-              className={`carousel-slide-frame h-[28rem] border lg:h-[38rem] ${
-                index === activeIndex
-                  ? "carousel-slide-active border-accent/45 opacity-100"
-                  : "carousel-slide-inactive border-ink/10 opacity-75"
-              }`}
-              imageClassName="object-cover"
-              sizes="(max-width: 1023px) 100vw, 40vw"
-            />
-          </li>
-        ))}
-      </ul>
-
       <div
-        className="mt-1 flex items-center justify-center gap-1"
-        aria-label="Escolher imagem do carrossel"
-      >
-        {images.map((image, index) => (
-          <button
-            key={image.id}
-            type="button"
-            aria-label={`Ir para imagem ${index + 1} de ${images.length}`}
-            aria-current={index === activeIndex ? "true" : undefined}
-            onClick={() => handleManualNavigation(index)}
-            className="interactive-control group grid size-8 place-items-center rounded-full"
-          >
-            <span
-              aria-hidden="true"
-              className={`block h-1.5 rounded-full transition-[width,background-color] duration-300 ${
-                index === activeIndex
-                  ? "w-6 bg-accent"
-                  : "w-1.5 bg-ink/25 group-hover:bg-forest"
-              }`}
-            />
-          </button>
-        ))}
-      </div>
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-2 rounded-subtle border border-accent/20"
+      />
 
-      <p
-        className="sr-only"
-        aria-live={autoplayIsRunning ? "off" : "polite"}
-        aria-atomic="true"
-      >
-        Imagem {activeIndex + 1} de {images.length}
-      </p>
+      <div className="relative z-10">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-forest">
+              Ambientes DOMO
+            </p>
+            <p className="mt-2 text-sm leading-6 text-ink/55">
+              Fotografias reais dos espaços disponíveis.
+            </p>
+          </div>
+
+          <div
+            className="flex shrink-0 gap-2"
+            aria-label="Controles do carrossel"
+          >
+            <button
+              type="button"
+              aria-label={
+                prefersReducedMotion
+                  ? "Reprodução automática desativada pela preferência de movimento reduzido"
+                  : isPausedByUser
+                    ? "Retomar reprodução automática"
+                    : "Pausar reprodução automática"
+              }
+              disabled={prefersReducedMotion || images.length <= 1}
+              onClick={toggleAutoplay}
+              className="interactive-control grid size-11 place-items-center rounded-subtle border border-ink/25 text-sm text-ink transition-colors hover:border-forest hover:text-forest disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              <span aria-hidden="true">{isPausedByUser ? "▶" : "Ⅱ"}</span>
+            </button>
+            <button
+              type="button"
+              aria-label="Ver imagem anterior"
+              disabled={!canGoBack}
+              onClick={() => handleManualNavigation(activeIndex - 1)}
+              className="interactive-control grid size-11 place-items-center rounded-subtle border border-ink/25 text-xl text-ink transition-colors hover:border-forest hover:text-forest disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              <span aria-hidden="true">←</span>
+            </button>
+            <button
+              type="button"
+              aria-label="Ver próxima imagem"
+              disabled={!canGoForward}
+              onClick={() => handleManualNavigation(activeIndex + 1)}
+              className="interactive-control grid size-11 place-items-center rounded-subtle border border-ink/25 text-xl text-ink transition-colors hover:border-forest hover:text-forest disabled:cursor-not-allowed disabled:opacity-30"
+            >
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <ul
+          ref={trackRef}
+          tabIndex={0}
+          aria-label="Fotografias reais dos ambientes profissionais"
+          onKeyDown={handleKeyDown}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={finishPointerDrag}
+          onPointerCancel={finishPointerDrag}
+          onWheel={pauseAutoplayTemporarily}
+          onDragStart={(event) => event.preventDefault()}
+          className="carousel-track mt-3 flex touch-pan-y snap-x snap-mandatory select-none gap-4 overflow-x-auto scroll-smooth py-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        >
+          {images.map((image, index) => (
+            <li
+              key={image.id}
+              data-carousel-slide
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Imagem ${index + 1} de ${images.length}`}
+              className="basis-full shrink-0 snap-start"
+            >
+              <ReferenceImage
+                src={image.src}
+                alt={image.alt}
+                className={`carousel-slide-frame h-[28rem] border lg:h-[38rem] ${
+                  index === activeIndex
+                    ? "carousel-slide-active border-accent/45 opacity-100"
+                    : "carousel-slide-inactive border-ink/10 opacity-75"
+                }`}
+                imageClassName="object-cover"
+                sizes="(max-width: 1023px) 100vw, 40vw"
+              />
+            </li>
+          ))}
+        </ul>
+
+        <div
+          className="mt-1 flex items-center justify-center gap-1"
+          aria-label="Escolher imagem do carrossel"
+        >
+          {images.map((image, index) => (
+            <button
+              key={image.id}
+              type="button"
+              aria-label={`Ir para imagem ${index + 1} de ${images.length}`}
+              aria-current={index === activeIndex ? "true" : undefined}
+              onClick={() => handleManualNavigation(index)}
+              className="interactive-control group grid size-8 place-items-center rounded-full"
+            >
+              <span
+                aria-hidden="true"
+                className={`block h-1.5 rounded-full transition-[width,background-color] duration-300 ${
+                  index === activeIndex
+                    ? "w-6 bg-accent"
+                    : "w-1.5 bg-ink/25 group-hover:bg-forest"
+                }`}
+              />
+            </button>
+          ))}
+        </div>
+
+        <p
+          className="sr-only"
+          aria-live={autoplayIsRunning ? "off" : "polite"}
+          aria-atomic="true"
+        >
+          Imagem {activeIndex + 1} de {images.length}
+        </p>
+      </div>
     </div>
   );
 }

@@ -29,8 +29,8 @@ export default function EnvironmentsSection() {
           <RevealOnScroll className="max-w-md lg:justify-self-end" delayMs={180}>
             <p className="text-base leading-8 text-ink/65">
               Recepção, circulação e apoio para compor uma rotina de trabalho
-              mais organizada. As fotos do corredor e da copa ainda são
-              ilustrativas e serão substituídas após o registro fotográfico.
+              mais organizada. Conheça a recepção, o corredor e a copa por meio
+              de fotografias reais do Escritório DOMO.
             </p>
           </RevealOnScroll>
         </div>

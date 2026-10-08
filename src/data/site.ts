@@ -34,24 +34,24 @@ export const aboutContent = {
 
 export const roomsCarouselImages = [
   {
-    id: "escritorio-compacto",
-    src: "/images/environments/escritorio-compacto-referencia.webp",
-    alt: "Imagem ilustrativa de um escritório privativo em ambiente corporativo.",
+    id: "sala-domo",
+    src: "/images/environments/sala-domo-ofc.jpeg",
+    alt: "Sala de reunião DOMO, com mesa em mármore, cadeiras e televisão.",
   },
   {
-    id: "sala-reuniao-compacta",
-    src: "/images/environments/sala_Domo.png",
-    alt: "Imagem ilustrativa de uma sala preparada para reuniões profissionais.",
+    id: "sala-master",
+    src: "/images/environments/sala-master-ofc.jpeg",
+    alt: "Sala Master do Escritório DOMO, com mesa ampla, seis cadeiras e televisão.",
   },
   {
-    id: "sala-reuniao-ampla",
-    src: "/images/environments/SALA_MAster.png",
-    alt: "Imagem ilustrativa de uma sala de reunião em ambiente corporativo.",
+    id: "escritorio-privativo",
+    src: "/images/environments/escritorio-privativo-ofc.jpeg",
+    alt: "Escritório privativo DOMO com mesas de trabalho, cadeiras e televisão.",
   },
   {
     id: "escritorio-com-janela",
-    src: "/images/environments/SalaComJanela2.jpg",
-    alt: "Imagem ilustrativa de um escritório compartilhado com janela.",
+    src: "/images/environments/escritorio-com-janela-ofc.jpeg",
+    alt: "Escritório privativo DOMO com mesa de reunião e janela panorâmica.",
   },
 ] satisfies RoomCarouselImage[];
 
@@ -61,8 +61,8 @@ export const usageModes = [
     title: "Pontual",
     description: "Salas de reunião por hora",
     image: {
-      src: "/images/environments/sala_Domo.png",
-      alt: "Imagem ilustrativa de uma sala preparada para reuniões profissionais.",
+      src: "/images/environments/sala-domo-ofc.jpeg",
+      alt: "Sala de reunião DOMO preparada para encontros profissionais.",
     },
   },
   {
@@ -70,8 +70,8 @@ export const usageModes = [
     title: "Fixo",
     description: "Escritórios privativos",
     image: {
-      src: "/images/environments/escritorio-compacto-referencia.webp",
-      alt: "Imagem ilustrativa de um escritório privativo para trabalho cotidiano.",
+      src: "/images/environments/escritorio-com-janela-ofc.jpeg",
+      alt: "Escritório privativo DOMO com janela panorâmica para trabalho cotidiano.",
     },
   },
 ] satisfies UsageMode[];
@@ -92,20 +92,22 @@ export const environments = [
     id: "corredor",
     index: "02",
     title: "Corredor",
-    description: "[CONFIRMAR TEXTO DO CORREDOR E ADICIONAR FOTO REAL]",
+    description:
+      "Circulação organizada, bem iluminada e integrada aos ambientes do Escritório DOMO.",
     image: {
-      src: "/images/environments/Corredor.png",
-      alt: "Imagem ilustrativa de um corredor em ambiente corporativo.",
+      src: "/images/environments/corredor-ofc.jpeg",
+      alt: "Corredor do Escritório DOMO, com iluminação embutida, portas laterais e piso amadeirado.",
     },
   },
   {
     id: "copa",
     index: "03",
     title: "Copa",
-    description: "[CONFIRMAR TEXTO DA COPA E ADICIONAR FOTO REAL]",
+    description:
+      "Copa equipada com copos, xícaras e frigobar, com água e café disponíveis para apoiar a rotina de trabalho.",
     image: {
-      src: "/images/environments/Copa.png",
-      alt: "Imagem ilustrativa de uma copa em ambiente corporativo.",
+      src: "/images/environments/copa-ofc.jpeg",
+      alt: "Copa do Escritório DOMO, equipada com frigobar, armários e mesa de apoio.",
     },
   },
 ] satisfies Environment[];

@@ -4,6 +4,10 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import "./globals.css";
 
+
+const siteUrl =
+  process.env.SITE_URL || "https://domo-site-theta.vercel.app";
+
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
   weight: "variable",
@@ -18,9 +22,38 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Escritório DOMO",
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "Escritório DOMO",
+    template: "%s | Escritório DOMO",
+  },
+
   description:
-    "Espaços profissionais para reuniões e escritórios privativos em João Pessoa.",
+    "Salas de reunião e escritórios privativos em ambientes profissionais no Evolution Business Center, em João Pessoa.",
+
+  applicationName: "Escritório DOMO",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: "/",
+    siteName: "Escritório DOMO",
+    title: "Escritório DOMO",
+    description:
+      "Salas de reunião e escritórios privativos em ambientes profissionais no Evolution Business Center, em João Pessoa.",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Escritório DOMO",
+    description:
+      "Salas de reunião e escritórios privativos em ambientes profissionais no Evolution Business Center, em João Pessoa.",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
